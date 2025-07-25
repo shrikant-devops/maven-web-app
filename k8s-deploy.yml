@@ -26,12 +26,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
- name: mavenwebappsvc
+  name: mavenwebappsvc
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
-   app: mavenwebapp
+    app: mavenwebapp
   ports:
-   - port: 80
-     targetPort: 9090
+    - port: 80
+      targetPort: 8080
+      nodePort: 30080  # Optional: custom port in 30000-32767 range
 ...
